@@ -3,12 +3,12 @@ import * as THREE from "three";
 
 export default class Scene extends React.Component {
   private canvasBox: React.RefObject<HTMLDivElement>;
-  private scene: THREE.Scene;
-  private renderer: THREE.Renderer;
-  private camera: THREE.Camera;
-  private cube: THREE.Mesh;
+  private scene: any;//THREE.Scene;
+  private renderer: any;//THREE.Renderer;
+  private camera: any;//THREE.Camera;
+  private cube: any;//THREE.Mesh;
 
-  constructor(props, context) {
+  constructor(props: any, context: any) {
     super(props, context);
     this.state = {};
     this.canvasBox = React.createRef<HTMLDivElement>();
@@ -54,7 +54,7 @@ export default class Scene extends React.Component {
     camera.lookAt(this.scene.position);
     this.camera = camera;
 
-    this.canvasBox.current.appendChild(renderer.domElement);
+    this.canvasBox.current && this.canvasBox.current.appendChild(renderer.domElement);
     this.renderScene();
   }
 
